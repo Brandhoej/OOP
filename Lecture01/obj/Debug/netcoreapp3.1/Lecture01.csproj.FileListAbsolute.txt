@@ -1,0 +1,11 @@
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01.deps.json
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01.runtimeconfig.json
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01.runtimeconfig.dev.json
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01.dll
+/home/andreas/Git/Brandhoej/OOP/Lecture01/bin/Debug/netcoreapp3.1/Lecture01.pdb
+/home/andreas/Git/Brandhoej/OOP/Lecture01/obj/Debug/netcoreapp3.1/Lecture01.csprojAssemblyReference.cache
+/home/andreas/Git/Brandhoej/OOP/Lecture01/obj/Debug/netcoreapp3.1/Lecture01.AssemblyInfoInputs.cache
+/home/andreas/Git/Brandhoej/OOP/Lecture01/obj/Debug/netcoreapp3.1/Lecture01.AssemblyInfo.cs
+/home/andreas/Git/Brandhoej/OOP/Lecture01/obj/Debug/netcoreapp3.1/Lecture01.dll
+/home/andreas/Git/Brandhoej/OOP/Lecture01/obj/Debug/netcoreapp3.1/Lecture01.pdb
