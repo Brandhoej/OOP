@@ -175,14 +175,92 @@
             }
         }
         ```
-   * **Udskriver navnene på alle mapper og antal filer og mapper, de indeholderBrug klassen DirectoryInfo. Den ligger i namespacet System.IO. Der findes en tilsvarende FileInfo for filer.**
+   * **Udskriver navnene på alle mapper og antal filer og mapper, de indeholderBrug klassen DirectoryInfo. Den ligger i namespacet ```System.IO```. Der findes en tilsvarende FileInfo for filer.**
         ```csharp
         public FileInfo[] GetFileInfosInDirectory(string path) => new DirectoryInfo(path).GetFiles();
 
-        public void PrintFileInfosInDirectory(string path) {
-            foreach (FileInfo info in GetFileInfosInDirectory(path)) {
-                Console.WriteLine($"{info.Name} :: {info.Length} Bytes");
+        public void PrintFileInfoAtPath(string path) {
+            FileInfo[] infos = GetFileInfosAtPath(path);
+            Console.WriteLine($"{path}: {infos.Length} files");
+            foreach (FileInfo info in infos) {
+                Console.WriteLine($"{info.Name} ({info.Length} Bytes)");
             }
         }
         ```
-        
+   * **Udskriver navnene på alle mapper og antal filer og mapper, de indeholderBrug klassen ```DirectoryInfo```. Den ligger i namespacet ```System.IO```. Der findes en tilsvarende ```FileInfo``` for filer.**
+        ```csharp
+        public DirectoryInfo[] GetDirectoryInfosAtPath(string path) => new DirectoryInfo(path).GetDirectories();
+
+        public void PrintDirectoryInfosAtPath(string path) {
+            foreach (DirectoryInfo info in GetDirectoryInfosAtPath(path)) {
+                Console.WriteLine($"{info.Name}: {info.GetFiles().Length} files");
+            }
+        }
+        ```
+5. **I C# sammenligner vi værdier med ==. For de simple typer sammenligner vi værdier:**
+   * **1 == 1 giver true**
+   * **1 == 2 giver false**
+   * **true == true giver true**
+   * **true == false giver false**
+**Når vi sammenligner referencetyper, er det, måske overraskende, ikke de data der refereres til der sammenlignes, men selve referencen!**
+   * **Skriv et lille program der kan bekræfte dette. Lav ny klasse til formålet.**
+        ```csharp
+        Library library1 = new Library();
+        Library library2 = new Library();
+        Console.WriteLine(library1 == library2); // → false
+        Library library3 = library2;
+        Console.WriteLine(library2 == library3); // → true
+        ```
+6. **Definer en vektortype, om det er 2D eller 3D, er op til dig.**
+   * **Implementér metoder for addition og subtraktion**
+        ```csharp
+        public class Vec2 {
+            private double[] coords = new double[2];
+
+            public double X { get => coords[0]; set => coords[0] = value; }
+
+            public double Y { get => coords[1]; set => coords[1] = value; }
+
+            public Vec2(double x, double y) {
+                coords[0] = x;
+                coords[1] = y;
+            }
+
+            public void Add(Vec2 other) {
+                X += other.X;
+                Y += other.Y;
+            }
+
+            public void Subtract(Vec2 other) {
+                X -= other.X;
+                Y -= other.Y;
+            }
+        }
+        ```
+   * **Implementér skalering og evt. andre som f.eks. krydsprodukt.**
+        ```csharp
+        public void Scalar(double scalar) {
+                X *= scalar;
+                Y *= scalar;
+            }
+
+        public double Dot(Vec2 other) {
+                return X * other.X + Y * other.Y;
+            }
+        }
+        ```
+   * **Valgte du at mutere dine objekter for vektorfunktionerne?**
+      * **Hvis dine vektorer muterer, implementer da en ikkemuterende version(returner altid nye vektorer). Og omvendt.**
+        ```csharp
+        public static Vec2 operator +(Vec2 a, Vec2 b) {
+            return new Vec2(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static Vec2 operator -(Vec2 a, Vec2 b) {
+            return new Vec2(a.X - b.X, a.Y - b.Y);
+        }
+
+        public static Vec2 operator *(Vec2 vec, double scalar) {
+            return new Vec2(vec.X * scalar, vec.Y * scalar);
+        }
+        ```

@@ -6,7 +6,7 @@ namespace Lecture01
     {
         static void Main(string[] args)
         {
-            Person andreas = new Person {
+            /*Person andreas = new Person {
                 Fornavn = "Andreas",
                 Efternavn = "Brandhøj",
                 Mor = new Person {
@@ -33,7 +33,14 @@ namespace Lecture01
                         Efternavn = "Kjeldgaard"
                     }
                 }
-            };
+            };*/
+            Library library1 = new Library();
+            Library library2 = new Library();
+            Console.WriteLine(library1 == library2); // → false
+            Library library3 = library2;
+            Console.WriteLine(library2 == library3); // → true
+            library1.PrintFileInfoAtPath(@"/home/andreas/Git/Brandhoej/OOP/Lecture01");
+            library1.PrintDirectoryInfosAtPath(@"/home/andreas/Git/Brandhoej/");
         }
     }
 }
