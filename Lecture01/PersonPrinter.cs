@@ -8,10 +8,10 @@ namespace Lecture01 {
             }
             PrintPerson(root);
             if (root.Mor != null) {
-                PrintPerson(root.Mor);
+                PrintFamilyTree(root.Mor);
             }
             if (root.Far != null) {
-                PrintPerson(root.Far);
+                PrintFamilyTree(root.Far);
             }
         }
 
